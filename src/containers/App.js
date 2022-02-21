@@ -1,10 +1,10 @@
 // added a new file for creating search box and title of app and also it cantain all body in this file 
 
 import React,{ Component } from "react";
-import Cardlist from "./Cardlist";
-import Searchbox from "./Searchbox";
+import Cardlist from "../components/Cardlist";
+import Searchbox from "../components/Searchbox";
 import './App.css'
-import Scroll from './Scroll'
+import Scroll from '../components/Scroll'
 
 class App extends Component {
     constructor(){
