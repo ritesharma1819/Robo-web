@@ -5,6 +5,7 @@ import Cardlist from "../components/Cardlist";
 import Searchbox from "../components/Searchbox";
 import './App.css'
 import Scroll from '../components/Scroll'
+import { robots } from "../robots";
 
 class App extends Component {
     constructor(){
@@ -30,6 +31,10 @@ class App extends Component {
         const filteredRobots = robots.filter(robot=>{
         return robot.name.toLowerCase().includes(searchfiled.toLowerCase());
         })
+        if(!robots.length){
+            return <h1>Loading</h1>
+        }
+        else{
         return(
             <div className="tc">
                 <h1>Robots</h1>
@@ -42,6 +47,7 @@ class App extends Component {
             </div>
           
         );
+        }
         }
    
 }
