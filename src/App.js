@@ -2,7 +2,6 @@
 
 import React,{ Component } from "react";
 import Cardlist from "./Cardlist";
-import { robots } from "./robots";
 import Searchbox from "./Searchbox";
 
 class App extends Component {
@@ -13,20 +12,27 @@ class App extends Component {
             searchfiled: ''
         }
     }
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+          .then(response=> response.json())
+          .then(users => {this.setState({ robots: users})});
+      }
+
+
     onSearchChange=(event)=>{
         this.setState({searchfiled: event.target.value })
     
     }
     render(){
         const {robots, searchfiled}= this.state;
-        const filterrobots = robots.filter(robot=>{
+        const filteredRobots = robots.filter(robot=>{
         return robot.name.toLowerCase().includes(searchfiled.toLowerCase());
         })
         return(
             <div className="tc">
                 <h1>Robots</h1>
-                <Searchbox searchchange={this.onsearchchange}/>
-                <Cardlist robots={filterrobots}/>
+                <Searchbox searchChange={this.onSearchChange} />
+                <Cardlist robots={filteredRobots}/>
                 
             </div>
           
