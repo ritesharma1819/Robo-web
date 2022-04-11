@@ -6,15 +6,6 @@ import Searchbox from "../components/Searchbox";
 import './App.css'
 import Scroll from '../components/Scroll'
 
-// class App extends Component {
-//     constructor(){
-//         super()
-//         this.state={
-//             robots:[],
-//             searchfiled: ''
-//         }
-//     }
-
 const App=()=>{
 
     const [robots, setRobots]=useState([]);
@@ -30,7 +21,6 @@ const App=()=>{
         setSearchfiled(event.target.value )
     
     }
-    // render(){
         const filteredRobots = robots.filter(robot=>{
         return robot.name.toLowerCase().includes(searchfiled.toLowerCase());
         },[])
@@ -54,14 +44,5 @@ const App=()=>{
         
    
 }
-
-    // componentDidMount() {
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //       .then(response=> response.json())
-    //       .then(users => {this.setState({ robots: users})});
-    //   }
-
-
-    
 
 export default App;
