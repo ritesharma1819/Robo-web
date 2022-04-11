@@ -5,7 +5,6 @@ import Cardlist from "../components/Cardlist";
 import Searchbox from "../components/Searchbox";
 import './App.css'
 import Scroll from '../components/Scroll'
-import { robots } from "../robots";
 
 class App extends Component {
     constructor(){

@@ -12,7 +12,7 @@ This is my first react app, i make this app to learn react.
 
 ## Host
 This app is host in github
-   ### hosted link: 
+   ### Deploy link: 
        ritesharma1819.github.io/robo-web/
 
 
