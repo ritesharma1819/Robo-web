@@ -6,26 +6,21 @@ import Searchbox from "../components/Searchbox";
 import './App.css'
 import Scroll from '../components/Scroll'
 
-class App extends Component {
-    constructor(){
-        super()
-        this.state={
-            robots:[],
-            searchfiled: ''
-        }
-    }
-    componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-          .then(response=> response.json())
-          .then(users => {this.setState({ robots: users})});
-      }
+// class App extends Component {
+//     constructor(){
+//         super()
+//         this.state={
+//             robots:[],
+//             searchfiled: ''
+//         }
+//     }
 
-
-    onSearchChange=(event)=>{
+const App=()=>{
+     const onSearchChange=(event)=>{
         this.setState({searchfiled: event.target.value })
     
     }
-    render(){
+    // render(){
         const {robots, searchfiled}= this.state;
         const filteredRobots = robots.filter(robot=>{
         return robot.name.toLowerCase().includes(searchfiled.toLowerCase());
@@ -37,7 +32,7 @@ class App extends Component {
         return(
             <div className="tc">
                 <h1>Robots</h1>
-                <Searchbox searchChange={this.onSearchChange} />
+                <Searchbox searchChange={onSearchChange} />
                 <Scroll>
                   <Cardlist robots={filteredRobots}/>
                 </Scroll>
@@ -47,8 +42,17 @@ class App extends Component {
           
         );
         }
-        }
+        
    
 }
+
+    // componentDidMount() {
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //       .then(response=> response.json())
+    //       .then(users => {this.setState({ robots: users})});
+    //   }
+
+
+    
 
 export default App;
